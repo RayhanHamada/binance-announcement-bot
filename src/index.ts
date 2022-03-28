@@ -7,5 +7,5 @@ import getNewListing from './tasks/getNewListing';
 
   await getNewListing(page);
 
-  // await browser.close();
+  await browser.close();
 })();

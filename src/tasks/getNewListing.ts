@@ -1,6 +1,7 @@
 import { load } from 'cheerio';
 import type { Page } from 'puppeteer';
 import dayjs from '../utils/dayjs';
+import genSha256 from '../utils/genSha256';
 
 export default async function getNewListing(page: Page) {
   await page.goto(
@@ -32,6 +33,7 @@ export default async function getNewListing(page: Page) {
       link,
       title,
       date,
+      hash: genSha256(`${link}${title}${date.toString()}`),
     };
   });
 
