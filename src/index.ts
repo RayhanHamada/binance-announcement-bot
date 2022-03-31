@@ -1,11 +1,3 @@
-import { launch } from 'puppeteer';
-import getNewListing from './tasks/getNewListing';
+import runTasks from './runtasks';
 
-(async () => {
-  const browser = await launch();
-  const page = await browser.newPage();
-
-  await getNewListing(page);
-
-  await browser.close();
-})();
+runTasks();

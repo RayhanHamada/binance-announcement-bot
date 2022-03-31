@@ -32,7 +32,8 @@ export default async function getNewListing(page: Page) {
     return {
       link,
       title,
-      date,
+      textDate,
+      // date,
       hash: genSha256(`${link}${title}${date.toString()}`),
     };
   });
