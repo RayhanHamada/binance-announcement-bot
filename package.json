@@ -1,11 +1,11 @@
 {
-  "name": "listing_binance",
+  "name": "binance-announcement",
   "version": "1.0.0",
   "description": "",
   "scripts": {},
   "keywords": [],
-  "author": "RayhanHamada",
-  "license": "ISC",
+  "author": "Muhammad Rayhan Hamada Budiman <rayhanhamada1999@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "swcno": "^0.1.1",
     "typescript": "^4.6.3"
