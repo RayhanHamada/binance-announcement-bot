@@ -1,3 +1,5 @@
-import runTasks from './runtasks';
+// runTasks();
 
-runTasks();
+import bot from './bot';
+
+bot.start().then(() => console.log(`bot starts`));
