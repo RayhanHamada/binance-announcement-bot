@@ -1,16 +1,19 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@prisma/client': ^3.11.1
   cheerio: ^1.0.0-rc.10
   cron-schedule: ^3.0.5
   dayjs: ^1.11.0
   discordoo: ^0.10.0
   env-cmd: ^10.1.0
+  prisma: ^3.11.1
   puppeteer: ^13.5.1
   swcno: ^0.1.1
   typescript: ^4.6.3
 
 dependencies:
+  '@prisma/client': 3.11.1_prisma@3.11.1
   cheerio: 1.0.0-rc.10
   cron-schedule: 3.0.5
   dayjs: 1.11.0
@@ -19,6 +22,7 @@ dependencies:
 
 devDependencies:
   env-cmd: 10.1.0
+  prisma: 3.11.1
   swcno: 0.1.1
   typescript: 4.6.3
 
@@ -36,6 +40,29 @@ packages:
     resolution: {integrity: sha512-lb7Kw/YsiiUrxps2JmguPUOWEcMpH7qjDSMWYUNbg6Yt34uZi9DQhGIdbUBlLUKjeV8l9AdbfDf/MqksyERUvQ==}
     engines: {node: '>=12.18'}
     dev: false
+
+  /@prisma/client/3.11.1_prisma@3.11.1:
+    resolution: {integrity: sha512-B3C7zQG4HbjJzUr2Zg9UVkBJutbqq9/uqkl1S138+keZCubJrwizx3RuIvGwI+s+pm3qbsyNqXiZgL3Ir0fSng==}
+    engines: {node: '>=12.6'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 3.11.1-1.1a2506facaf1a4727b7c26850735e88ec779dee9
+      prisma: 3.11.1
+    dev: false
+
+  /@prisma/engines-version/3.11.1-1.1a2506facaf1a4727b7c26850735e88ec779dee9:
+    resolution: {integrity: sha512-HkcsDniA4iNb/gi0iuyOJNAM7nD/LwQ0uJm15v360O5dee3TM4lWdSQiTYBMK6FF68ACUItmzSur7oYuUZ2zkQ==}
+    dev: false
+
+  /@prisma/engines/3.11.1-1.1a2506facaf1a4727b7c26850735e88ec779dee9:
+    resolution: {integrity: sha512-MILbsGnvmnhCbFGa2/iSnsyGyazU3afzD7ldjCIeLIGKkNBMSZgA2IvpYsAXl+6qFHKGrS3B2otKfV31dwMSQw==}
+    requiresBuild: true
+    dev: true
 
   /@swc-node/core/1.8.2:
     resolution: {integrity: sha512-IoJ7tGHQ6JOMSmFe4VhP64uLmFKMNasS0QEgUrLFQ0h/dTvpQMynnoGBEJoPL6LfsebZ/q4uKqbpWrth6/yrAA==}
@@ -699,6 +726,15 @@ packages:
     dependencies:
       find-up: 4.1.0
     dev: false
+
+  /prisma/3.11.1:
+    resolution: {integrity: sha512-aYn8bQwt1xwR2oSsVNHT4PXU7EhsThIwmpNB/MNUaaMx5OPLTro6VdNJe/sJssXFLxhamfWeMjwmpXjljo6xkg==}
+    engines: {node: '>=12.6'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 3.11.1-1.1a2506facaf1a4727b7c26850735e88ec779dee9
+    dev: true
 
   /progress/2.0.3:
     resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}
