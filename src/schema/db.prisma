@@ -1,0 +1,18 @@
+datasource db {
+    provider = "mongodb"
+    url      = env("DB_URL")
+}
+
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["mongoDb"]
+}
+
+model Guild {
+    id String @id @default(uuid()) @map("_id")
+
+    guildId         String   @map("guild_id")
+    allowedChannels String[] @map("allowed_channels")
+
+    @@map("guilds")
+}
