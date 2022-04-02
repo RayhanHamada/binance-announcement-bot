@@ -9,9 +9,8 @@ generator client {
 }
 
 model Guild {
-    id String @id @default(uuid()) @map("_id")
+    id String @id @map("_id")
 
-    guildId         String   @map("guild_id")
     allowedChannels String[] @map("allowed_channels")
 
     @@map("guilds")
