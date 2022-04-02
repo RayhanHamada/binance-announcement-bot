@@ -4,13 +4,15 @@
   "description": "",
   "scripts": {
     "start": "env-cmd -f ./.env swcno src/index.ts",
-    "generate": "prisma generate --schema=./src/schema/db.prisma"
+    "generate": "prisma generate --schema=./src/schema/db.prisma",
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "Muhammad Rayhan Hamada Budiman <rayhanhamada1999@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.15",
     "prisma": "^3.11.1",
     "swcno": "^0.1.1",
     "typescript": "^4.6.3"

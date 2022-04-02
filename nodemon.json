@@ -1,0 +1,7 @@
+{
+  "exec": "./node_modules/.bin/env-cmd -f ./.env ./node_modules/.bin/swcno src/index.ts",
+  "ext": "*",
+  "ignore": ["node_modules"],
+  "watch": ["src"],
+  "legacyWatch": true
+}
