@@ -1,5 +1,5 @@
 import { Client, MessageEmbed, TextChannel } from 'discord.js';
-import db from './utils/db';
+import db from '../utils/db';
 
 const bot = new Client({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
