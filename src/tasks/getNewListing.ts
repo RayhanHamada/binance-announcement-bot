@@ -21,22 +21,28 @@ export default async function getNewListing(page: Page) {
   );
 
   // extract title, link, and date
-  const extracts = htmlArr.map((e) => {
-    const loaded = load(e);
+  const extracts = htmlArr
+    .map((e) => {
+      const loaded = load(e);
 
-    const link = `https://www.binance.com${loaded('a').attr('href')}`;
-    const title = (loaded('a > div').contents()[0] as any).data as string;
-    const textDate = loaded('a > div > h6').text();
-    const date = dayjs(textDate, 'YYYY-MM-DD');
+      const link = `https://www.binance.com${loaded('a').attr('href')}`;
+      const title = (loaded('a > div').contents()[0] as any).data as string;
+      const textDate = loaded('a > div > h6').text();
+      const date = dayjs(textDate, 'YYYY-MM-DD');
 
-    return {
-      link,
-      title,
-      textDate,
-      // date,
-      hash: genSha256(`${link}${title}${date.toString()}`),
-    };
-  });
+      return {
+        link,
+        title,
+        // textDate,
+        date,
+        hash: genSha256(`${link}${title}${date.toString()}`),
+      };
+    })
 
-  console.log(extracts);
+    /**
+     * get only today's listing
+     */
+    .filter((listing) => listing.date.isAfter(dayjs().startOf('d')));
+
+  return extracts;
 }
