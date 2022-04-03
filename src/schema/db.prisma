@@ -11,7 +11,28 @@ generator client {
 model Guild {
     id String @id @map("_id")
 
-    allowedChannels String[] @map("allowed_channels")
+    channelIds String[] @map("channel_ids")
 
     @@map("guilds")
+}
+
+enum AnnouncementKind {
+    crypto_listing
+    crypto_delisting
+    fiat_listing
+    crypto_airdrop
+    news
+}
+
+// today's announcement
+model Announcements {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+
+    title       String
+    publishedOn DateTime         @map("published_on")
+    link        String
+    kind        AnnouncementKind
+    hash        String
+
+    @@map("announcements")
 }

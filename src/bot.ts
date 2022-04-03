@@ -38,12 +38,12 @@ bot.on('guildCreate', async (guild) => {
     /**
      * get allowed channels for guild
      */
-    const allowedChannels = foundGuild.allowedChannels;
+    const channelIds = foundGuild.channelIds;
 
     /**
      * send greeting to default allowed text channel if no allowedChannel exists
      */
-    if (allowedChannels.length === 0) {
+    if (channelIds.length === 0) {
       await defaultTextChannel.send({
         content:
           'Hi, thanks for inviting me again. For me to start announcing, please type "$subhere" to your prefered channel',
@@ -55,7 +55,7 @@ bot.on('guildCreate', async (guild) => {
     /**
      * show greetings for each allowed channels
      */
-    allowedChannels.forEach(async (id) => {
+    channelIds.forEach(async (id) => {
       const channel = guild.channels.cache.get(id) as TextChannel;
 
       if (!channel) return;
@@ -75,7 +75,7 @@ bot.on('guildCreate', async (guild) => {
   await db.guild.create({
     data: {
       id,
-      allowedChannels: [],
+      channelIds: [],
     },
   });
 
@@ -133,7 +133,7 @@ bot.on('messageCreate', async (msg) => {
       /**
        * return if already subbed
        */
-      if (foundGuild!.allowedChannels.includes(msg.channelId)) {
+      if (foundGuild!.channelIds.includes(msg.channelId)) {
         await msg.channel.send(
           'You already made this channel subscribe to the announcement !'
         );
@@ -150,7 +150,7 @@ bot.on('messageCreate', async (msg) => {
             id: msg.guildId!,
           },
           data: {
-            allowedChannels: {
+            channelIds: {
               push: msg.channelId,
             },
           },
@@ -176,7 +176,7 @@ bot.on('messageCreate', async (msg) => {
       /**
        * return if channel not subscribing
        */
-      if (!foundGuild!.allowedChannels.includes(msg.channelId)) {
+      if (!foundGuild!.channelIds.includes(msg.channelId)) {
         await msg.channel.send(
           'This channel not subscribing to the announcement'
         );
@@ -193,10 +193,8 @@ bot.on('messageCreate', async (msg) => {
             id: msg.guildId!,
           },
           data: {
-            allowedChannels: {
-              set: foundGuild?.allowedChannels.filter(
-                (id) => msg.channelId !== id
-              ),
+            channelIds: {
+              set: foundGuild?.channelIds.filter((id) => msg.channelId !== id),
             },
           },
         })
@@ -216,26 +214,25 @@ bot.on('messageCreate', async (msg) => {
         },
       });
 
-      const allowedChannelIds = guild!.allowedChannels;
+      const allowedChannelIds = guild!.channelIds;
 
       /**
        * transform channel ids into names
        */
-
       const allowedChannelNames = await Promise.all(
         allowedChannelIds.map(
           async (id) => msg.guild!.channels.cache.get(id)!.name
         )
       );
 
-      const allowedChannelsDescription = allowedChannelNames.reduce(
+      const channelIdsDescription = allowedChannelNames.reduce(
         (p, c) => `${p}\n- ${c}`,
         allowedChannelNames.length === 0 ? 'Seems empty right now...' : '- '
       );
 
       const listEmbed = new MessageEmbed({
         title: 'List of channel subscribing',
-        description: allowedChannelsDescription,
+        description: channelIdsDescription,
       });
 
       await msg.channel.send({
