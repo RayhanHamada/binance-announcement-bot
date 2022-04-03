@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@prisma/client': ^3.11.1
+  '@swc-node/register': ^1.4.2
   cheerio: ^1.0.0-rc.10
   cron-schedule: ^3.0.5
   dayjs: ^1.11.0
@@ -10,7 +11,7 @@ specifiers:
   nodemon: ^2.0.15
   prisma: ^3.11.1
   puppeteer: ^13.5.1
-  swcno: ^0.1.1
+  tslib: ^2.3.1
   typescript: ^4.6.3
 
 dependencies:
@@ -22,10 +23,11 @@ dependencies:
   puppeteer: 13.5.1
 
 devDependencies:
+  '@swc-node/register': 1.4.2
   env-cmd: 10.1.0
   nodemon: 2.0.15
   prisma: 3.11.1
-  swcno: 0.1.1
+  tslib: 2.3.1
   typescript: 4.6.3
 
 packages:
@@ -1405,16 +1407,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       has-flag: 4.0.0
-    dev: true
-
-  /swcno/0.1.1:
-    resolution: {integrity: sha512-tgynMI6f+6BoSYWEvgCVW6ffTPZ76l5IU8gIeG3DH2GFMsxNjawUMn559/L0WL9Es3D/7eISHzGniRDSbHbeIg==}
-    hasBin: true
-    dependencies:
-      '@swc-node/register': 1.4.2
-      cross-spawn: 7.0.3
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /tar-fs/2.1.1:
