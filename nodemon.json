@@ -1,5 +1,5 @@
 {
-  "exec": "./node_modules/.bin/env-cmd -f ./.env node -r @swc-node/register src/index.ts",
+  "exec": "./node_modules/.bin/rollup -c && node dist/index.js",
   "ext": "*",
   "ignore": ["node_modules"],
   "watch": ["src"],
