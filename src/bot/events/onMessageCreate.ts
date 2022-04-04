@@ -8,6 +8,10 @@ export const onMessageCreate: OnMessageCreate = async (msg) => {
     return;
 
   /**
+   * TODO: add conditions to allow only certain user can invoke the command
+   */
+
+  /**
    * treat everything that prefixed with "$" as a command
    */
   if (/^\$/.test(msg.content)) {
