@@ -1,5 +1,5 @@
-import db from '@utils/db';
 import { Awaitable, Message, MessageEmbed } from 'discord.js';
+import db from '~/src/utils/db';
 
 type OnMessageCreate = (message: Message<boolean>) => Awaitable<void>;
 
