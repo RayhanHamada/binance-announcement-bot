@@ -1,6 +1,9 @@
 import { Message } from 'discord.js';
 import db from '~src/utils/db';
 
+/**
+ * remove this channel subscription
+ */
 export const unSubHere = async (msg: Message<boolean>) => {
   const foundGuild = await db.guild.findFirst({
     where: {

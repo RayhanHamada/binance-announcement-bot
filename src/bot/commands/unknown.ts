@@ -1,6 +1,9 @@
 import { Message } from 'discord.js';
 import { helpEmbed } from '~src/bot/utils';
 
+/**
+ * if the command is unknown
+ */
 export const unknown = async (msg: Message<boolean>) => {
   await msg.channel.send({
     content:

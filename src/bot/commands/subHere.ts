@@ -1,6 +1,9 @@
 import { Message } from 'discord.js';
 import db from '~src/utils/db';
 
+/**
+ * subscribe to current text channel
+ */
 export const subHere = async (msg: Message<boolean>) => {
   const foundGuild = await db.guild.findFirst({
     where: {

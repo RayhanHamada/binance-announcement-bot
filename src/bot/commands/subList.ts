@@ -1,6 +1,9 @@
 import { Message, MessageEmbed } from 'discord.js';
 import db from '~src/utils/db';
 
+/**
+ * list all subbed channel
+ */
 export const subList = async (msg: Message<boolean>) => {
   const guild = await db.guild.findFirst({
     where: {
