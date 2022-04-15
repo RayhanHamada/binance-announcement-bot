@@ -1,5 +1,5 @@
 import { launch } from 'puppeteer';
-import getNewListing from '~src/scrapeTask/getNewListing';
+import getNewCryptoListing from '~src/scrapeTask/getNewCryptoListing';
 
 const runTasks = async () => {
   /**
@@ -11,7 +11,7 @@ const runTasks = async () => {
   /**
    * gather announcements here
    */
-  const newListings = await getNewListing(page);
+  const newListings = await getNewCryptoListing(page);
 
   /**
    * TODO: delisting,

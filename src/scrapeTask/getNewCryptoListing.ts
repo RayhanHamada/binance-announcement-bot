@@ -3,7 +3,7 @@ import type { Page } from 'puppeteer';
 import dayjs from '~/src/utils/dayjs';
 import genSha256 from '~/src/utils/genSha256';
 
-export default async function getNewListing(page: Page) {
+export default async function getNewCryptoListing(page: Page) {
   await page.goto(
     'https://www.binance.com/en/support/announcement/c-48?navId=48'
   );
