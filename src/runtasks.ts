@@ -1,5 +1,5 @@
-import getNewListing from '@scrapeTask/getNewListing';
 import { launch } from 'puppeteer';
+import getNewListing from '~src/scrapeTask/getNewListing';
 
 const runTasks = async () => {
   /**
