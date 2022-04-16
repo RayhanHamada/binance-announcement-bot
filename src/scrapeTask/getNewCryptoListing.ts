@@ -35,7 +35,7 @@ export default async function getNewCryptoListing(page: Page) {
         title,
         // textDate,
         date,
-        hash: genSha256(`${link}${title}${date.toString()}`),
+        hash: genSha256(title),
       };
     })
 
