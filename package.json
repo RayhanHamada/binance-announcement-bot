@@ -8,7 +8,8 @@
     "generate": "prisma generate --schema=./src/schema/db.prisma",
     "dev": "nodemon",
     "build": "parcel build",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Muhammad Rayhan Hamada Budiman <rayhanhamada1999@gmail.com>",
