@@ -3,15 +3,17 @@ import type { Page } from 'puppeteer';
 import dayjs from '~/src/utils/dayjs';
 import genSha256 from '~src/utils/genSHA256';
 
+const pageLink =
+  'https://www.binance.com/en/support/announcement/c-48?navId=48';
+
+const elementXPath =
+  '//*[@id="__APP"]/div/div/main/div[2]/div[2]/section/div[2]/div[1]';
+
 export default async function getNewCryptoListing(page: Page) {
-  await page.goto(
-    'https://www.binance.com/en/support/announcement/c-48?navId=48'
-  );
+  await page.goto(pageLink);
 
   // get all list
-  const els = await page.$x(
-    '//*[@id="__APP"]/div/div/main/div[2]/div[2]/section/div[2]/div[1]'
-  );
+  const els = await page.$x(elementXPath);
 
   // take only first level div
   const el = await els[0].$$(':scope > div');
@@ -33,7 +35,6 @@ export default async function getNewCryptoListing(page: Page) {
       return {
         link,
         title,
-        // textDate,
         date,
         hash: genSha256(title),
       };
