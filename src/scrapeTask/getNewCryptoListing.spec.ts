@@ -11,7 +11,6 @@ describe('scrapeTask/getNewCryptoListing', () => {
     const testFn = async () => await getNewCryptoListing(page);
 
     expect(testFn).not.toThrowError();
-    browser.close();
   });
 
   test('should return array', async () => {
@@ -21,6 +20,6 @@ describe('scrapeTask/getNewCryptoListing', () => {
     const testFn = async () => await getNewCryptoListing(page);
 
     expect(Array.isArray(await testFn())).toBeTruthy();
-    browser.close();
+    await browser.close();
   });
 });
