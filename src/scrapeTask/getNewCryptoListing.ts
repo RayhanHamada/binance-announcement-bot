@@ -1,7 +1,7 @@
 import { load } from 'cheerio';
 import type { Page } from 'puppeteer';
 import dayjs from '~/src/utils/dayjs';
-import genSha256 from '~src/utils/genSha256';
+import genSha256 from '~src/utils/genSHA256';
 
 export default async function getNewCryptoListing(page: Page) {
   await page.goto(
