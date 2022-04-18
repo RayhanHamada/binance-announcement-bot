@@ -1,4 +1,4 @@
-import genSha256 from './genSha256';
+import genSha256 from './genSHA256';
 
 describe('utils/genSHA256', () => {
   it('should generate 64 character', () => {
