@@ -1,8 +1,9 @@
 import { launch } from 'puppeteer';
+import { testTimout } from '~src/testutils/constant';
 import getNewCryptoListing from './getNewCryptoListing';
 
 describe('scrapeTask/getNewCryptoListing', () => {
-  jest.setTimeout(20000);
+  jest.setTimeout(testTimout);
 
   test('should work properly', async () => {
     const browser = await launch();
