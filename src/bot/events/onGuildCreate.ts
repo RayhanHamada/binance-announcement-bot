@@ -16,7 +16,7 @@ export const onGuildCreate: OnGuildCreate = async (guild) => {
   ) as TextChannel;
 
   /**
-   * check for existing channel
+   * check if this guild already on database
    */
   const foundGuild = await db.guild.findFirst({
     where: {
@@ -34,7 +34,7 @@ export const onGuildCreate: OnGuildCreate = async (guild) => {
     const channelIds = foundGuild.channelIds;
 
     /**
-     * send greeting to default allowed text channel if no allowedChannel exists
+     * send greeting to default text channel if no allowedChannel exists
      */
     if (channelIds.length === 0) {
       await defaultTextChannel.send({
