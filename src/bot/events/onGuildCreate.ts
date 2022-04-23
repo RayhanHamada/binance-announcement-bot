@@ -1,5 +1,5 @@
 import { Awaitable, Guild, TextChannel } from 'discord.js';
-import db from '~/src//utils/db';
+import db from '~/src/utils/db';
 
 type OnGuildCreate = (client: Guild) => Awaitable<void>;
 
